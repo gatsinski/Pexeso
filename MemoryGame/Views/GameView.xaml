@@ -1,0 +1,261 @@
+﻿<UserControl x:Class="MemoryGame.Views.GameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MemoryGame.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="650" d:DesignWidth="600">
+
+    <DockPanel>
+        <StackPanel Margin="0,0,0,0" DockPanel.Dock="Left" Height="100" Width="200">
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" Text="{Binding Timer.Time, StringFormat=Време: {0}}" Foreground="#000000" FontSize="24" />
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" Text="{Binding Cards.Score, StringFormat=Резултат: {0}}" Foreground="#000000" FontSize="24" />
+            <Button Padding="10" Background="#000000" Click="PlayAgain_C" Foreground="#FFFFFF" FontSize="20">Отново</Button>
+        </StackPanel>
+        <Grid DataContext="{Binding Cards}" IsEnabled="{Binding areSlidesActive}" DockPanel.Dock="Left" Margin="10,0,0,0" Width="350">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="1" />
+                </Style>
+            </Grid.Resources>
+
+            <!-- First Column -->
+            <Button Grid.Row="0" Grid.Column="0" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[0]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="0" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[1]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="0" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[2]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="0" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[3]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="0" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[4]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Second Column-->
+            <Button Grid.Row="0" Grid.Column="1" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[5]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[6]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="1" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[7]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="1" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[8]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="1" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[9]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Third Column -->
+            <Button Grid.Row="0" Grid.Column="2" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[10]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="2" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[11]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="2" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[12]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="2" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[13]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Forth Column -->
+            <Button Grid.Row="0" Grid.Column="3" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[14]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="3" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[15]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="3" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[16]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="3" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[17]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="3" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[18]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Fift Column -->
+            <Button Grid.Row="0" Grid.Column="4" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[19]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="4" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[20]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="4" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[21]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="4" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[22]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="4" IsEnabled="{Binding isSelectable}" DataContext="{Binding GameCards[23]}" Click="Slide_Clicked">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource SlideBorder}" BorderBrush="{Binding BorderBrush}">
+                            <Image Stretch="Fill" Source="{Binding CardImage}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </DockPanel>
+</UserControl>
